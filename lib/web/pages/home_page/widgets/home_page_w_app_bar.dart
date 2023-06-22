@@ -10,7 +10,9 @@ class HomePageWAppBar extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       TextWidget(
           text: "Your shopping cart", size: 20, fontWeight: FontWeight.bold),
-      Icon(CupertinoIcons.shopping_cart, color: Colors.black)
+      Tooltip(
+          message: "Shooping Cart Page",
+          child: Icon(CupertinoIcons.shopping_cart, color: Colors.black))
     ]);
   }
 }
