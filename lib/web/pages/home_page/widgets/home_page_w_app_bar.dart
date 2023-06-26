@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_web_2/blocs/home_page_bloc/home_page_bloc_events.dart';
+import 'package:flutter_web_2/blocs/home_page_bloc/home_page_bloc_states.dart';
+import 'package:flutter_web_2/blocs/home_page_bloc/main_home_page_bloc.dart';
 import 'package:flutter_web_2/web/widgets/text_widget.dart';
 
 class HomePageWAppBar extends StatelessWidget {
@@ -7,12 +11,20 @@ class HomePageWAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      TextWidget(
-          text: "Your shopping cart", size: 20, fontWeight: FontWeight.bold),
-      Tooltip(
-          message: "Shooping Cart Page",
-          child: Icon(CupertinoIcons.shopping_cart, color: Colors.black))
-    ]);
+    return BlocBuilder<MainHomePageBloc, HomePageBlocStates>(
+        builder: (context, state) {
+      return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        const TextWidget(
+            text: "Your shopping cart", size: 20, fontWeight: FontWeight.bold),
+        Tooltip(
+            message: "Shooping Cart Page",
+            child: IconButton(
+                onPressed: () => context
+                    .read<MainHomePageBloc>()
+                    .add(ShowCartFromSideWebEvent()),
+                icon: const Icon(CupertinoIcons.shopping_cart,
+                    color: Colors.black)))
+      ]);
+    });
   }
 }

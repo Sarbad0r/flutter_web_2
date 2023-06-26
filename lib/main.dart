@@ -42,14 +42,16 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, builder) {
       debugPrint("size width: ${builder.maxWidth}");
-      if (builder.maxWidth < 600) {
+      if (builder.maxWidth < 500) {
         return const HomePageMobile();
+      } else if (builder.maxWidth >= 500 && builder.maxWidth < 1100) {
+        return Container();
       } else {
         return const HomePageWeb();
       }
     });
   }
 }
-//desktop > 1100
+//desktop >= 1100
 //tablet > 500 < 1100
 //mobile < 500

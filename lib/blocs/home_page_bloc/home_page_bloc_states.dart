@@ -10,6 +10,3 @@ class InitialHomePageState extends HomePageBlocStates {
   InitialHomePageState(homePageState) : super(homePageState: homePageState);
 }
 
-class ShowBannerHomePageState extends HomePageBlocStates {
-  ShowBannerHomePageState(homePageState) : super(homePageState: homePageState);
-}

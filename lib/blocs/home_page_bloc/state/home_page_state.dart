@@ -1,6 +1,13 @@
+import 'package:flutter_web_2/models/cart_item.dart';
 import 'package:flutter_web_2/models/product_model.dart';
 
 class HomePageState {
+  List<CartItem> cartItems = [];
+
+  bool showCartFromSideWeb = false;
+
+  bool showBanner = false;
+
   List<ProductModel> products = [
     ProductModel(
         id: 1,
