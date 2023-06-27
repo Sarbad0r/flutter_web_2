@@ -53,13 +53,14 @@ class CartProductWidget extends StatelessWidget {
                   color: Colors.grey,
                   child: const Icon(Icons.remove, size: 5)),
             )),
-            const SizedBox(width: 10),
+            Flexible(child: const SizedBox(width: 15)),
             Flexible(
                 child: TextWidget(
                     textAlign: TextAlign.center,
                     text: "${cartItem.qty}",
-                    color: Colors.white)),
-            const SizedBox(width: 10),
+                    color: Colors.white,
+                    size: 11)),
+            Flexible(child: const SizedBox(width: 15)),
             Flexible(
                 child: GestureDetector(
               onTap: () => context

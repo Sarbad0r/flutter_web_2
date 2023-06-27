@@ -53,15 +53,18 @@ class _FoodWidgetState extends State<FoodWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child: SizedBox(
-                                  width: 150,
-                                  height: 150,
-                                  child: Image.asset(
-                                    widget.product.imageUrl,
-                                    fit: BoxFit.cover,
-                                  )))),
+                        child: Container(
+                          width: 170,
+                          height: 170,
+                          decoration: BoxDecoration(
+                              // borderRadius: BorderRadius.circular(250),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage(widget.product.imageUrl ?? ''),
+                                  fit: BoxFit.cover)),
+                        ),
+                      ),
                       Flexible(
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,

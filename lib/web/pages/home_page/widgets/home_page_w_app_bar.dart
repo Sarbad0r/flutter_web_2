@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_2/blocs/home_page_bloc/home_page_bloc_events.dart';
 import 'package:flutter_web_2/blocs/home_page_bloc/home_page_bloc_states.dart';
 import 'package:flutter_web_2/blocs/home_page_bloc/main_home_page_bloc.dart';
+import 'package:flutter_web_2/reusable/global_widgets.dart';
+import 'package:flutter_web_2/reusable/routes.dart';
 import 'package:flutter_web_2/web/widgets/text_widget.dart';
 
 class HomePageWAppBar extends StatelessWidget {
@@ -14,8 +16,17 @@ class HomePageWAppBar extends StatelessWidget {
     return BlocBuilder<MainHomePageBloc, HomePageBlocStates>(
         builder: (context, state) {
       return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        const TextWidget(
-            text: "Your shopping cart", size: 20, fontWeight: FontWeight.bold),
+        MouseRegion(
+          onEnter: (pointer) async =>
+              await GlobalWidgets.showDropdownMenu(context, pointer),
+          child: const Tooltip(
+            message: "",
+            child: TextWidget(
+                text: "Your shopping cart",
+                size: 20,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
         Tooltip(
             message: "Shooping Cart Page",
             child: IconButton(

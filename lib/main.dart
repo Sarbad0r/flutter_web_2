@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_2/blocs/home_page_bloc/home_page_bloc_events.dart';
 import 'package:flutter_web_2/blocs/home_page_bloc/main_home_page_bloc.dart';
 import 'package:flutter_web_2/mobile/pages/home_page/home_page_mobile.dart';
+import 'package:flutter_web_2/reusable/routes.dart';
+import 'package:flutter_web_2/web/pages/another_page.dart';
 import 'package:flutter_web_2/web/pages/home_page/home_page_web.dart';
 
 void main() {
@@ -19,8 +21,15 @@ void main() {
   }
   runApp(MultiBlocProvider(
       providers: [BlocProvider(create: (context) => MainHomePageBloc())],
-      child: const MaterialApp(
-          home: MainApp(), debugShowCheckedModeBanner: false)));
+      child: MaterialApp(
+          home: const MainApp(),
+          debugShowCheckedModeBanner: false,
+          routes: {
+            //use routes with like this:
+            Routes.anotherPage: (context) => const AnotherPage(),
+            //without class like this:
+            //"/routeName": (context) => HomePageWeb()
+          })));
 }
 
 class MainApp extends StatefulWidget {
